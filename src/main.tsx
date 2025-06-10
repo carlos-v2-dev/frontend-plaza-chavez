@@ -7,7 +7,7 @@ import './index.css';
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Favicon url="/src/assets/react.svg" />
+    <Favicon url="/Sppj.png" />
     <App />
   </StrictMode>
 );

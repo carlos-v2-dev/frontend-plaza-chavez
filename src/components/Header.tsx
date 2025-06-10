@@ -1,16 +1,34 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { User, Menu, X } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
 import { NotificationBell } from "./NotificationBell";
 import { useSidebar } from "@/components/ui/sidebar";
+import { authService } from "@/auth/authService";
+import { Session } from "@/auth/authResponse";
 
 export function Header() {
-  const { user } = useAuth();
-  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [session, setSession] = useState<Session>();
   const { toggleSidebar, open } = useSidebar();
+
+  useEffect(() => {
+    const getSession = new Promise(resolve => {
+      resolve(authService.getSession())
+    })
+
+    getSession
+      .then(res => {
+        setSession(res.session as Session)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  },[])
+
+  const user = session ? session.user : ""
+  const email = user ? user.email : ""
+  
+  
 
   return (
     <header className="border-b bg-white sticky top-0 z-40 shadow-sm">
@@ -33,6 +51,24 @@ export function Header() {
             Sistema de Gestión
           </h1>
         </div>
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+              <NotificationBell />
+              <div className="hidden sm:flex items-center gap-2 sm:gap-3 min-w-0">
+                <Avatar className="w-8 h-8 flex-shrink-0">
+                  <AvatarFallback className="bg-primary/10 text-primary">
+                    <User className="w-4 h-4" />
+                  </AvatarFallback>
+                </Avatar>
+                <span className="text-sm text-gray-600 truncate max-w-32 md:max-w-40 lg:max-w-none">
+                  { email }
+                </span>
+              </div>
+              <Avatar className="w-8 h-8 sm:hidden flex-shrink-0">
+                <AvatarFallback className="bg-primary/10 text-primary">
+                  <User className="w-4 h-4" />
+                </AvatarFallback>
+              </Avatar>
+          </div>
       </div>
     </header>
   );

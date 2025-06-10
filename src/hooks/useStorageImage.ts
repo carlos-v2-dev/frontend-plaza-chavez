@@ -48,7 +48,7 @@ export const useStorageImage = (bucketName: string, fileName: string | null) => 
         });
 
         // Intentar diferentes extensiones de archivo
-        const extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp'];
+        const extensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'bmp', 'svg'];
         
         for (const ext of extensions) {
           const fullFileName = fileName.includes('.') ? fileName : `${fileName}.${ext}`;

@@ -75,7 +75,7 @@ export function NotificationBell() {
   };
 
   const handleAppointmentClick = () => {
-    navigate('/calendar');
+    navigate('/dashboard/calendar');
   };
 
   const formatDate = (dateString: string) => {

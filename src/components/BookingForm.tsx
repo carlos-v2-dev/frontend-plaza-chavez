@@ -95,6 +95,10 @@
             }
         }
 
+        console.log(formData.paymentProof);
+        
+        
+
         // Create appointment record
         const appointmentData: Omit<Appointment, 'id'> = {
             court_id: selectedCourt,

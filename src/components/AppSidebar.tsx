@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/sidebar";
 import { Package, Tag, ShoppingCart, Calendar, Building, Building2, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
 import { authService } from '../auth/authService';
 import Swal from 'sweetalert2';
 
@@ -82,7 +81,7 @@ export function AppSidebar() {
         <div className={`p-4 border-b ${isCollapsed ? 'px-2' : ''}`}>
           <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
             <div className="w-10 h-10 rounded flex items-center justify-center flex-shrink-0">
-              <img src="/src/assets/Sppj.png" alt="Logo secretaria" />
+              <img src="/Sppj.png" alt="Logo secretaria" />
             </div>
             {!isCollapsed && (
               <span className="font-bold text-lg text-gray-800">PLAZA CHAVEZ</span>

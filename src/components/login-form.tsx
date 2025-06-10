@@ -67,8 +67,8 @@ export function LoginForm({ className, ...props}: React.ComponentPropsWithoutRef
         <Card>
             <CardHeader className="text-center">
             <div className="flex justify-center">
-                <img className="w-[55%] h-[250px]" src="/src/assets/Sppj.png" alt="" />
-                <img className="w-[55%] h-[250px]" src="/src/assets/Venezuela Joven.png" alt="" />
+                <img className="w-[55%] h-[250px]" src="/Sppj.png" alt="" />
+                <img className="w-[55%] h-[250px]" src="/Venezuela Joven.png" alt="" />
             </div>
             <CardTitle className="text-xl">Bienvenido</CardTitle>
             <CardDescription>
