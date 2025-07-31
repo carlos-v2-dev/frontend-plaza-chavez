@@ -225,7 +225,14 @@
                     💵 Pago en Efectivo
                     </Label>
                 </div>
-                
+                <div className="flex items-center space-x-3 p-4 rounded-xl border border-[#e4ebe1] hover:bg-[#f1faee] transition-all duration-200 cursor-pointer">
+                    <RadioGroupItem value="pago_movil" id="pago_movil" className="text-[#e63946]" />
+                    <Label htmlFor="pago_movil" className="cursor-pointer font-medium text-gray-700">
+                    📱 Pago Móvil
+                    </Label>
+                </div>
+                </RadioGroup>
+            </div>
 
             {selectedDate && selectedTimes.length > 0 && selectedCourt && (
                 <div className="p-6 bg-gradient-to-r from-[#f1faee] to-[#e4ebe1] rounded-xl border border-[#e4ebe1] animate-in slide-in-from-bottom-4 duration-300">
